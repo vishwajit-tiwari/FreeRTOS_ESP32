@@ -12,11 +12,15 @@ static const BaseType_t app_cpu = 1;
 /*----------Pins-----------------------*/
 //static const int led_1 = LED_BUILTIN;
 static const int led_1 = 23;
-//static const int led_2 = 22;
 /*-------------------------------------*/
 
+/*----Rate of LED Blinking-----*/
+static const int rate_1 = 1000;
+static const int rate_2 = 500;
+/*------------------------------*/
 
-/*----Our task 1: Blink an LED-1 at rate_1----*/
+
+/*Our task: Blink an LED-1 at rate_1----*/
 
 void toggleLED_1(void * parameter) 
 {
@@ -24,17 +28,17 @@ void toggleLED_1(void * parameter)
   {
     digitalWrite(led_1, HIGH);
     Serial.println("LED-1 is ON");
-    vTaskDelay(500 / portTICK_PERIOD_MS);
+    vTaskDelay(rate_1 / portTICK_PERIOD_MS);
     
     digitalWrite(led_1, LOW);
     Serial.println("LED-1 is OFF");
-    vTaskDelay(500 / portTICK_PERIOD_MS);
+    vTaskDelay(rate_1 / portTICK_PERIOD_MS);
   }
 }
 /*-------------------------------------------*/
 
 
-/*----Our task 2: Blink an LED-2 at rate_2----*/
+/*Our task: Blink an LED-1 at rate_2----*/
 
 void toggleLED_1_rate_2(void * parameter) 
 {
@@ -42,11 +46,11 @@ void toggleLED_1_rate_2(void * parameter)
   {
     digitalWrite(led_1, HIGH);
     Serial.println("LED-1 rate_2 is ON");
-    vTaskDelay(300 / portTICK_PERIOD_MS);
+    vTaskDelay(rate_1 / portTICK_PERIOD_MS);
     
     digitalWrite(led_1, LOW);
     Serial.println("LED-1 rate_2 is OFF");
-    vTaskDelay(300 / portTICK_PERIOD_MS);
+    vTaskDelay(rate_2 / portTICK_PERIOD_MS);
   }
 }
 /*-------------------------------------------*/
